@@ -1,15 +1,23 @@
 import { useState } from "react";
-
 export default function App() {
+  return (
+    <div>
+      <Steps />
+      <Steps />
+    </div>
+  );
+}
+
+function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   //const [test, setTest] = useState({ name: "Ishay" });
 
   function handlePrevious() {
-    if (step > 1) setStep(step - 1);
+    if (step > 1) setStep((s) => s - 1); // while passing an argument it will work once , while passing a callback we can update multiple times
   }
   function handleNext() {
-    if (step < 3) setStep(step + 1);
+    if (step < 3) setStep((s) => s + 1); // changed to callback function
     //setTest({ name: "fred" });
   }
 
